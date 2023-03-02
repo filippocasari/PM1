@@ -1,11 +1,10 @@
 
-# import
+# imports
 import itertools
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.patches as mpatches
 import random
-import time
 from IPython import display
 # defining 0=blue, 1=red, 2=empty
 candidates = [0, 1, 2]
@@ -92,16 +91,12 @@ while (counter < ITER):
 
         count_same_race = 0 # counter for counting number of same race neighbors
         # conditions if the cell is on the edge of the grid
-        if (i-1 < 0):
+        if i < 1:
             indx = ROWS-1
         indx = 0 if (i+1 > ROWS-1) else i
-        if (j-1 < 0):
+        if j < 1:
             indy = COLS-1
-        if (j+1 > COLS-1):
-            indy = 0
-        else:
-            indy = j
-
+        indy = 0 if (j+1 > COLS-1) else j
         if (grid[indx][indy] == grid[indx-1][indy]):
             count_same_race += 1
 
