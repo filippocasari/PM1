@@ -22,7 +22,7 @@ count_1 = 0
 count_2 = 0
 RANDOM = True # if true, the agents will move randomly until they find a empty cell
 # rows and cols of the grid
-ROWS, COLS = 100,100
+ROWS, COLS = 20,20
 H = int(input("Insert value for H: "))
 # building the grid
 for _ in range(ROWS):
@@ -96,9 +96,9 @@ def check_boundaries(pos_x,pos_y):
     return pos_x, pos_y
 
 
-results_dict = {"Random": [], "iterations": [], "H": []}
+results_dict = {"grid_size":[], "Random": [], "iterations": [], "H": []}
 # main loop
-while (True):
+while True:
     if (counter % 1000 == 0): # every x iterations, show the grid
         print(f"iteration # {counter}")
     # for each row and column
@@ -137,7 +137,7 @@ while (True):
                 # check if the cell is happy
 
             happy_array[i][j] = count_same_race >= H # updating happy matrix
-    
+
     #happy_agents = 0
     #for i,j in itertools.product(range(ROWS), range(COLS)):
     #    if happy_array[i][j]:
@@ -147,16 +147,25 @@ while (True):
     if (happy_agents==(count_0+count_1)):
         print("iterations needed to converge: ",counter)
         results_dict["iterations"].append(counter)
+        results_dict["grid_size"].append(f"{ROWS}x{COLS}")
         results_dict["H"].append(H)
         results_dict["Random"].append(RANDOM)
-        fig.savefig(f"results/iterations_{counter}_H_{H}_random_{RANDOM}.png")
+        fig.savefig(f"results_random_choise/iterations_size_{ROWS}_{counter}_H_{H}_random_{RANDOM}.png")
         plt.pause(4)
         break
     # loop for moving the unhappy agents
-    for i, j in itertools.product(range(ROWS), range(COLS)):
+
     
+    list_items=[]
+    for i,j in itertools.product(range(ROWS), range(COLS)):
+        list_items.extend(([i,j], [j,i]))
+    for _ in range((ROWS*COLS)):
+            i, j = random.choices(list_items, k=1)[0]
+            list_items.remove([i,j])
+
+
             # perform actions only if the cell is unhappy and not empty
-            if (grid[i][j] != 2 and happy_array[i][j] == False):
+            if (grid[i][j] != 2 and not happy_array[i][j]):
                 # random method. Moving randmly until finding an empty cell
                 if (RANDOM):
 
@@ -211,7 +220,7 @@ while (True):
                             # grid2 = create_majority_matrix(grid)
     # if(counter%1000==0):
     # now we plot the new updated grid
-    if(counter%150==0 ):
+    if(counter%5==0 ):
         labels = {0: "blue", 1: "red", 2: "empty"}
         cmap = {0: [0.1, 0.1, 1.0, 1], 1: [
             1.0, 0.1, 0.1, 1], 2: [1.0, 0.5, 0.1, 1]}
@@ -223,10 +232,10 @@ while (True):
         display.clear_output(wait=True)
         display.display(fig)
         plt.pause(0.001)
-        
+
     counter += 1 # increasing the counter iterations
 
-    
+
 dataframe_results=pd.DataFrame(results_dict)
 if(not os.path.exists("results3/results3.csv")):
     dataframe_results.to_csv("results3/results3.csv", mode='a')

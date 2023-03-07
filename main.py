@@ -112,27 +112,27 @@ while (True):
             if j < 1:
                 indy = COLS-1
             indy = 0 if (j+1 > COLS-1) else j
-            if (grid[indx][indy] == grid[indx-1][indy]):
+            if (grid[i][j] == grid[indx-1][indy]):
                 count_same_race += 1
 
-            if (grid[indx][indy] == grid[indx][indy-1]):
+            if (grid[i][j] == grid[indx][indy-1]):
                 count_same_race += 1
 
-            if (grid[indx][indy] == grid[indx-1][indy-1]):
+            if (grid[i][j] == grid[indx-1][indy-1]):
                 count_same_race += 1
 
-            if (grid[indx][indy] == grid[indx+1][indy]):
+            if (grid[i][j] == grid[indx+1][indy]):
                 count_same_race += 1
 
-            if (grid[indx][indy] == grid[indx][indy+1]):
+            if (grid[i][j] == grid[indx][indy+1]):
                 count_same_race += 1
 
-            if (grid[indx][indy] == grid[indx+1][indy+1]):
+            if (grid[i][j] == grid[indx+1][indy+1]):
                 count_same_race += 1
 
-            if (grid[indx][indy] == grid[indx+1][indy-1]):
+            if (grid[i][j] == grid[indx+1][indy-1]):
                 count_same_race += 1
-            if (grid[indx][indy] == grid[indx-1][indy+1]):
+            if (grid[i][j] == grid[indx-1][indy+1]):
                 count_same_race += 1
                 # check if the cell is happy
 
@@ -176,26 +176,7 @@ while (True):
                     pos_x, pos_y = i, j # current position 
                     radius = 1 # starting with radius equal to 1
                     flag = False
-                    """
-                    while not flag: # until the empty cell is not found
-                        for x in range(pos_x-radius, pos_x+radius):
-                            for y in range(pos_y-radius, pos_y+radius):
-                                if (x < 0):
-                                    x = ROWS-1
-                                if (y < 0):
-                                    y = COLS-1
-                                if (x >= ROWS):
-                                    x = 0
-                                if (y >= COLS):
-                                    y = 0
-                                if (grid[x][y] == 2):
-                                    flag = True 
-                                    pos_x, pos_y = x, y # updating the new position
-                                    break # exit if the empty cell is found
-                            if (flag):
-                                break # exit if the empty cell is found
-                        radius += 1 # increasing the radius
-                        """
+                    
                     while not flag:
                         for x, y in itertools.product(range(pos_x - radius, pos_x + radius + 1), range(pos_y - radius, pos_y + radius + 1)):
                             if grid[x % ROWS][y % COLS] == 2:

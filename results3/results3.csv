@@ -1,5 +1,5 @@
-,Random,iterations,H
-0,True,3,1
-0,True,13,2
-0,True,53,3
-0,True,142,4
+,grid_size,Random,iterations,H
+0,30x30,True,5,1
+0,30x30,True,15,2
+0,30x30,True,26,3
+0,30x30,True,82,4
