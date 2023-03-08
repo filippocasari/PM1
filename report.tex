@@ -59,7 +59,7 @@
 
 \setassignment
 
-\serieheader{Particle Methods}{2022}{Student: Filippo Casari}{}{Report for Assignment 1}{}
+\serieheader{Particle Methods}{2023}{Student: Filippo Casari}{}{Report for Assignment 1}{}
 \newline
 \section*{Introduction}
 My first approach for this assignment was using python. 
@@ -67,69 +67,76 @@ Although the logic behing the code seemed to work, by using $H>4$ as parameter, 
 troubles about the performances of the program. Consequently, I switched to Matlab to exploit multithreading and GPU power. \\
 The program asks to users to decide whether to save the result image, to apply random search, and to choose the number H as well. 
 \section*{Implementation}
-I used 2 strategy for implementing the algorithm for moving the agents:
+I used 2 strategies for implementing the algorithm for moving the agents:
 \begin{itemize}
     \item \textbf{Random search}: The unhappy agents move to a random position in the grid. The direction is chosen randomly. 
     \item \textbf{NN}: Nearest Neiighbour. The unhappy agents move to the nearest empty position in the grid. The direction goes from the left to the right, and from the top to the bottom.
 \end{itemize}
 
 
-Since it could happen for large number of H that the algorithm is going to converge very slowly or in the case of NN never converges, I implemented a so-called \textbf{early stopping} condition. 
-It consists in checking if the number of unhappy agents is the same for 1000 consecutive iterations. If this happens, the algorithm stops. \\
-Speaking about the best strategy, it turns out that the Random one is the best one. Indeed, sometimes the NN does not let the algorithm converge to 100 percent of happiness. \\
+It could happen for large number of H that the algorithm is going to converge very slowly or in the case of NN never converges. For this reason, I implemented a so-called \textbf{early stopping} condition. 
+It consists of checking if the number of unhappy agents is the same for 1000 consecutive iterations. If this happens, the algorithm stops. \\
+Speaking about the best strategy, it turns out that the Random one is the best. Indeed, sometimes the NN does not let the algorithm converge to 100 percent of happiness. \\
 In contrast, the Random movement agent strategy for large H takes very long time to converge, and this leads to an early stopping criterion.\\
+I show below one picture of the inital conditions (generated randomly). 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/Initial_Condition_1.png}
+    \caption{Initial conditions}
+    \label{fig:image0}
+\end{figure}
 \section*{Results}
 When the algorithm reaches 100 percent of happiness, the result image shows a really nice patterns which look like a sort of segregation between green and red points. 
 \begin{figure}[H]
-    
+    \centering
     \begin{subfigure}[b]{0.3\textwidth}
-        \adjustbox{max height=\dimexpr\textheight-9\baselineskip}{
-      \includegraphics[width=\textwidth]{results/iterations_5_H_1_random_1.png}}
-      \caption{Image 1}
+        
+      \includegraphics[width=\textwidth]{results/iterations_5_H_1_random_1.png}
+      \caption{H 1}
       \label{fig:image1}
     \end{subfigure}
     \begin{subfigure}[b]{0.3\textwidth}
         \includegraphics[width=\textwidth]{results/iterations_16_H_2_random_1.png}
-        \caption{Image 2}
+        \caption{H 2}
         \label{fig:image2}
       \end{subfigure}
       \begin{subfigure}[b]{0.3\textwidth}
-        \adjustbox{max height=\dimexpr\textheight-9\baselineskip}{
-        \includegraphics[width=\textwidth]{results/iterations_64_H_3_random_1.png}}
-        \caption{Image 3}
+        
+        \includegraphics[width=\textwidth]{results/iterations_64_H_3_random_1.png}
+        \caption{H 3}
         \label{fig:image3}
       \end{subfigure}
       \begin{subfigure}[b]{0.3\textwidth}
         \includegraphics[width=\textwidth]{results/iterations_196_H_4_random_1.png}
-        \caption{Image 4}
+        \caption{H 4}
         \label{fig:image4}
       \end{subfigure}
       \begin{subfigure}[b]{0.3\textwidth}
         \includegraphics[width=\textwidth]{results/iterations_1888_H_5_random_1.png}
-        \caption{Image 5}
+        \caption{H 5}
         \label{fig:image5}
       \end{subfigure}
       \begin{subfigure}[b]{0.3\textwidth}
         \adjustbox{max height=\dimexpr\textheight-9\baselineskip}{
         \includegraphics[width=\textwidth]{results/iterations_2261_H_6_random_1.png}}
-        \caption{Image 6}
+        \caption{H 6}
         \label{fig:image6}
       \end{subfigure}
       
       \begin{subfigure}[b]{0.3\textwidth}
-        \adjustbox{max height=\dimexpr\textheight-9\baselineskip}{
-        \includegraphics[width=\textwidth]{results/iterations_1056_H_7_random_1.png}}
-        \caption{Image 7}
+        
+        \includegraphics[width=\textwidth]{results/iterations_1056_H_7_random_1.png}
+        \caption{H 7}
         \label{fig:image7}
       \end{subfigure}
       \begin{subfigure}[b]{0.3\textwidth}
         \includegraphics[width=\textwidth]{results/iterations_1002_H_8_random_1.png}
-        \caption{Image 8}
+        \caption{H 8}
         \label{fig:image8}
       \end{subfigure}
       \begin{subfigure}[b]{0.3\textwidth}
         \includegraphics[width=\textwidth]{results/iterations_1002_H_9_random_1.png}
-        \caption{Image 9}
+        \caption{H 9}
         \label{fig:image9}
       \end{subfigure}
       
@@ -139,54 +146,56 @@ I also saved the grids for Random=False (NN) in "results" directory. \\
 It turns out that with $H>5$ (from image 6) the segregation is not so clear or there isn't at all. \\
 Below I reported also the level (percentage) of happiness for each case. If the level si not 100 percent is because maybe the algorithm converges to a local "minimum" or because of the early stopping criterion was met. This could happen if the happiness did not improve within a time window of 1000 iterations. 
 \begin{figure}[H]
-    
-    \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
         
       \includegraphics[width=\textwidth]{Convergence/ConvergenceH1Random_1.png}
-      \caption{Image 1}
-      \label{fig:image1}
+      \caption{H 1}
+      \label{fig:image10}
     \end{subfigure}
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{Convergence/ConvergenceH2Random_1.png}
-        \caption{Image 2}
-        \label{fig:image2}
-      \end{subfigure}
-      \begin{subfigure}[b]{0.4\textwidth}
+        \caption{H 2}
+        \label{fig:image11}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
         
         \includegraphics[width=\textwidth]{Convergence/ConvergenceH3Random_1.png}
-        \caption{Image 3}
-        \label{fig:image3}
-      \end{subfigure}
-      \begin{subfigure}[b]{0.4\textwidth}
+        \caption{H 3}
+        \label{fig:image12}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{Convergence/ConvergenceH4Random_1.png}
-        \caption{Image 4}
-        \label{fig:image4}
+        \caption{H 4}
+        \label{fig:image13}
       \end{subfigure}
-      \begin{subfigure}[b]{0.4\textwidth}
+      \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{Convergence/ConvergenceH5Random_1.png}
-        \caption{Image 5}
-        \label{fig:image5}
+        \caption{H 5}
+        \label{fig:image14}
       \end{subfigure}
-      \begin{subfigure}[b]{0.4\textwidth}
+      \begin{subfigure}[b]{0.45\textwidth}
         
         \includegraphics[width=\textwidth]{Convergence/ConvergenceH6Random_1.png}
-        \caption{Image 6}
-        \label{fig:image6}
+        \caption{H 6}
+        \label{fig:image15}
       \end{subfigure}
       
-      \begin{subfigure}[b]{0.4\textwidth}
+      \begin{subfigure}[b]{0.45\textwidth}
         
         \includegraphics[width=\textwidth]{Convergence/ConvergenceH7Random_1.png}
-        \caption{Image 7}
-        \label{fig:image7}
+        \caption{H 7}
+        \label{fig:image16}
       \end{subfigure}
-      \begin{subfigure}[b]{0.4\textwidth}
+      \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{Convergence/ConvergenceH8Random_1.png}
-        \caption{Image 8}
-        \label{fig:image8}
+        \caption{H 8}
+        \label{fig:image17}
       \end{subfigure}
       
       
 \end{figure}
-As one can see the heppiness with $H<6$ it converges whereas with H higher the level is going up and down without reaching a good level of happiness. \\
+As one can see the heppiness with $H<6$ 
+converges whereas with H higher level is 
+going up and down without reaching a good level of happiness. \\
 \end{document}

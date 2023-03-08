@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1678207633 "/Users/filippocasari/Dropbox/Mac/Documents/ParticleMethods/Assignment1/report.tex" "report.pdf" "report" 1678207635
-  "/Users/filippocasari/Dropbox/Mac/Documents/ParticleMethods/Assignment1/report.tex" 1678207633 7942 ae73efc3b1cbc88c2bfe6fe69c4fef10 ""
+["pdflatex"] 1678283216 "/Users/filippocasari/Dropbox/Mac/Documents/ParticleMethods/Assignment1/report.tex" "report.pdf" "report" 1678283216
+  "/Users/filippocasari/Dropbox/Mac/Documents/ParticleMethods/Assignment1/report.tex" 1678283215 7978 6d2628ada1c577dc9a3ce21bfb33dce4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -116,10 +116,11 @@
   "Convergence/ConvergenceH7Random_1.png" 1678206997 44802 c5d5d3b1c910f1f29464e8eec439a7a7 ""
   "Convergence/ConvergenceH8Random_1.png" 1678206998 44407 348b7f35562843155bdffdd2451b92b0 ""
   "assignment.sty" 1678188668 3203 e53394e2146597517aced5f2066cea18 ""
+  "images/Initial_Condition_1.png" 1678282916 38772 23cd8b206ed3ae29b7d141622d4cd880 ""
   "images/usi_inf.png" 1678188798 84971 bad5bb2e9098283965abf689237a1ee8 ""
-  "report.aux" 1678207635 3183 4c5206e32e3ef934b335c204add5af80 "pdflatex"
+  "report.aux" 1678283216 3284 e51e13749e424fd6fe525895f7252e15 "pdflatex"
   "report.out" 0 -1 0 "pdflatex"
-  "report.tex" 1678207633 7942 ae73efc3b1cbc88c2bfe6fe69c4fef10 ""
+  "report.tex" 1678283215 7978 6d2628ada1c577dc9a3ce21bfb33dce4 ""
   "results/iterations_1002_H_8_random_1.png" 1678197637 36326 8541aab6987651422d96e7bade977356 ""
   "results/iterations_1002_H_9_random_1.png" 1678203358 36209 1898e881953c9b41690bcdc1146a8296 ""
   "results/iterations_1056_H_7_random_1.png" 1678197590 36237 86d40e66756f7be1d75ea2128559b689 ""
